@@ -2,26 +2,32 @@
   "tasks": [
     {
       "id": "37df1d7f-1fd4-4def-a615-15801efc2ef6",
-      "title": "Read a book",
-      "description": "Read 45 pages of a good book",
-      "completed": false
+      "title": "Study Redux-Saga",
+      "description": "Implement sagas",
+      "completed": true
     },
     {
       "id": "37df1d7f-1fd4-4def-a615-158hf68f2ef6",
-      "title": "Study React",
-      "description": "Hooks, lifecycle",
-      "completed": false
-    },
-    {
-      "id": "37df1d7f-1fd4-4def-a615-7gm0g8f2ef6",
-      "title": "asdasd",
-      "description": "asdasd",
-      "completed": false
+      "title": "Do the Getir coding assigment",
+      "description": "To-do list coding challenge",
+      "completed": true
     },
     {
       "id": "249e536b-25de-4322-bda0-0683c06fca5c",
-      "title": "Do the groceries",
-      "description": "Buy apples, milk and chocolate",
+      "title": "Submit the coding assessment",
+      "description": "Create a repo and send link to Getir team",
+      "completed": true
+    },
+    {
+      "id": "bdfe8e51-a4a1-4a26-8826-1136bebf91d0",
+      "title": "Tech interview",
+      "description": "Interview about the code assignment",
+      "completed": false
+    },
+    {
+      "id": "66d41004-58ac-4075-bf75-7c86fed7fb0f",
+      "title": "Get a job at Getir",
+      "description": "",
       "completed": false
     }
   ]
