@@ -14,7 +14,7 @@ import {
 import { months } from '../../utils/utils';
 import './Home.css';
 
-function Home() {
+const Home: React.FC<any> = () => {
   const store = useSelector((state: any) => state.tasks);
   const dispatch = useDispatch();
   const [newTitle, setNewTitle] = useState<string>('');
@@ -159,6 +159,6 @@ function Home() {
       )}
     </main>
   );
-}
+};
 
 export default Home;
