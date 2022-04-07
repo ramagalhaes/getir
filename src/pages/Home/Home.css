@@ -179,5 +179,15 @@ input:focus{
     color: #FFF;
 }
 
-/* ACTIONS DROPDOWN */
+/* SNACKBAR */
+
+.snack {
+    width: 300px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
 

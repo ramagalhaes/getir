@@ -1,19 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TaskModel } from '../../models/TaskModel';
 import { AddTaskPayload, ChangeStatusPayload } from '../../types/Payloads'
-
-interface TaskState {
-    action: 'insert' | 'update';
-    description:string;
-    loading: boolean;
-    showForm: boolean;
-    tasks: TaskModel[];
-    newTitle: string;
-    newDescription: string;
-    taskId: string;
-    completedTasks: number;
-}
-
+import { Dialog, TaskState } from '../../types/TaskState';
 
 const initialState: TaskState = {
     action: 'insert',
@@ -24,9 +12,10 @@ const initialState: TaskState = {
     newTitle: '',
     newDescription: '',
     taskId: '',
-    completedTasks: 0
+    completedTasks: 0,
+    dialog: {} as Dialog,
+    showDialogSnack: false,
 }
-
 
 export const slice = createSlice({
     name: 'formSlice',
@@ -54,6 +43,22 @@ export const slice = createSlice({
         },
         startDeleteTask: (state, { payload }: PayloadAction<string>) => {
             state.loading = true;
+        },
+        genericFailure: (state, { payload }: PayloadAction<Dialog>) => {
+            state.loading = false;
+            state.dialog.type = payload.type;
+            state.dialog.message = payload.message;
+        },
+        genericSuccess: (state, { payload }: PayloadAction<Dialog>) => {
+            state.loading = false;
+            state.dialog.type = payload.type;
+            state.dialog.message = payload.message;
+        },
+        showDialogSnack: (state) => {
+            state.showDialogSnack = true;
+        },
+        hideDialogSnack: (state) => {
+            state.showDialogSnack = false;
         },
         setInserting: (state) => {
             state.action = 'insert';
@@ -84,5 +89,9 @@ export const {
     closeForm,
     setInserting,
     setEditing,
-    startChangeTaskStatus
+    startChangeTaskStatus,
+    genericFailure,
+    showDialogSnack,
+    hideDialogSnack,
+    genericSuccess
 } = slice.actions;

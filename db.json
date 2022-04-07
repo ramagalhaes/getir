@@ -23,12 +23,6 @@
       "title": "Do the groceries",
       "description": "Buy apples, milk and chocolate",
       "completed": false
-    },
-    {
-      "id": "a4624935-acc2-4538-8c97-cae78eeb98ba",
-      "title": "Listen to music",
-      "description": "",
-      "completed": false
     }
   ]
 }
