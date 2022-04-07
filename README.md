@@ -10,7 +10,6 @@ Change baseURL on src/api/API.ts to `http://localhost:3004`
 
 Run the scripts below
 
-First we need to run
 ### `npm server`
 
 Launches the server
