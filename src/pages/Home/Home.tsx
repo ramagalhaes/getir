@@ -50,13 +50,13 @@ function Home() {
               <div className='todo-summary flex'>
                 <span className='status-counter flex'>
                   <div className='h3-bg flex'>
-                    <h3>5</h3>
+                    <h3>{store.completedTasks}</h3>
                   </div>
                   <p>done</p>
                 </span>
                 <span className='status-counter flex'>
                   <div className='h3-bg flex'>
-                    <h3>15</h3>
+                    <h3>{store.tasks.length - store.completedTasks}</h3>
                   </div>
                   <p>to do</p>
                 </span>
@@ -64,7 +64,7 @@ function Home() {
             </div>
             <div className='teste flex'>
             <p>{months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear()}</p>
-            <p>loading</p>
+            <p>{store.completedTasks * 100 / store.tasks.length}% completed</p>
             </div>
           </div>
           <div className='aditional-info'>

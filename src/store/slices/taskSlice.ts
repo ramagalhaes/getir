@@ -11,6 +11,7 @@ interface TaskState {
     newTitle: string;
     newDescription: string;
     taskId: string;
+    completedTasks: number;
 }
 
 
@@ -23,6 +24,7 @@ const initialState: TaskState = {
     newTitle: '',
     newDescription: '',
     taskId: '',
+    completedTasks: 0
 }
 
 
@@ -36,6 +38,7 @@ export const slice = createSlice({
         fetchTasksSuccess: (state, { payload }: PayloadAction<TaskModel[]>) => {
             state.tasks = payload;
             state.loading = false;
+            state.completedTasks = payload.filter((task) => task.completed === true).length
         },
         fetchTasksFailure: (state) => {
             state.loading = false
