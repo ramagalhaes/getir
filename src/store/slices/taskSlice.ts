@@ -49,6 +49,9 @@ export const slice = createSlice({
         startChangeTaskStatus: (state, { payload }: PayloadAction<ChangeStatusPayload>) => {
             state.loading = true;
         },
+        startDeleteTask: (state, { payload }: PayloadAction<string>) => {
+            state.loading = true;
+        },
         setInserting: (state) => {
             state.action = 'insert';
         },
@@ -73,6 +76,7 @@ export const {
     fetchTasksFailure,
     startEditTask,
     startAddTask,
+    startDeleteTask,
     openForm,
     closeForm,
     setInserting,

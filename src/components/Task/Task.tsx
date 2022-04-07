@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { TaskModel } from '../../models/TaskModel';
-import { openForm, setEditing, startChangeTaskStatus } from '../../store/slices/taskSlice';
+import { openForm, setEditing, startChangeTaskStatus, startDeleteTask } from '../../store/slices/taskSlice';
 import './Task.css'
 
 const Task: React.FC<TaskModel> = ({ id, completed, description, title }) => {
@@ -28,6 +28,10 @@ const Task: React.FC<TaskModel> = ({ id, completed, description, title }) => {
     setIsDropdownVisible(false)
   }
 
+  function handleDeleteClick() {
+    dispatch(startDeleteTask(id));
+  }
+
   return (
     <section className='item-container flex'>
         <div className='checkbox flex' onClick={switchCompletedState}>
@@ -42,7 +46,7 @@ const Task: React.FC<TaskModel> = ({ id, completed, description, title }) => {
             {isDropdownVisible ? (
               <div className='actions-drop flex'>
                 <span className='drop-item' onClick={handleEditClick}>Edit</span>
-                <span className='drop-item'>Delete</span>
+                <span className='drop-item' onClick={handleDeleteClick}>Delete</span>
               </div>
             ) : false}
         </div>
