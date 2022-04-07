@@ -16,6 +16,6 @@ Launches the server
 Runs the app in the development mode
 
 ## The application
-To-do list where the user is able to add, edit and delete tasks.\
+To-do list where the user is able to add, edit and delete tasks
 
 Built using ReactJS, Typescript, Redux and Redux-Saga.
