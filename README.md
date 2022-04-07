@@ -6,7 +6,7 @@ It might be neccessaty to install json-server globally, run `npm i -g json-serve
 
 ## Running locally
 
-Comment baseURL on src/api/API.ts to `http://localhost:3004`
+Change baseURL on src/api/API.ts to `http://localhost:3004`
 
 Run the scripts below
 
