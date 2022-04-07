@@ -23,6 +23,6 @@ To-do list where the user is able to add, edit and delete tasks
 
 Built using ReactJS, Typescript, Redux and Redux-Saga.
 
-The application is running on heroku and mockAPI, if somwthing goes wrong and stops running it's also possible to run locally following the instructions above
+The application is running on heroku and mockAPI, if something goes wrong and stops running it's also possible to run locally following the instructions above
 
 
