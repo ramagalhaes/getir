@@ -115,7 +115,7 @@ function Home() {
       {/* SNACKBAR */}
       {store.showDialogSnack ? (
       <div className='flex snack' 
-        style={{background: store.dialog.type === 'success' ? 'rgb(156 243 116)' : 'rgb(240 98 146)'}}
+        style={{background: store.dialog.type === 'success' ? '#65fa8a' : 'rgb(240 98 146)'}}
       >
         <p>{store.dialog.message}</p>
       </div>) : false}
