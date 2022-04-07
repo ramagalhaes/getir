@@ -1,15 +1,16 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { ToDo } from '../../models/ToDoModel';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { TaskModel } from '../../models/TaskModel';
+import { AddTaskPayload, ChangeStatusPayload } from '../../types/Payloads'
 
 interface TaskState {
     action: 'insert' | 'update';
     description:string;
     loading: boolean;
     showForm: boolean;
-    tasks: ToDo[];
+    tasks: TaskModel[];
     newTitle: string;
     newDescription: string;
-    taskId: number | null;
+    taskId: string;
 }
 
 
@@ -18,10 +19,10 @@ const initialState: TaskState = {
     description: '',
     loading: false,
     showForm: false,
-    tasks: [] as ToDo[],
+    tasks: [] as TaskModel[],
     newTitle: '',
     newDescription: '',
-    taskId: null,
+    taskId: '',
 }
 
 
@@ -32,28 +33,28 @@ export const slice = createSlice({
         startTasksFetch: (state) => {
             state.loading = true;
         },
-        fetchTasksSuccess: (state, action) => {
-            state.tasks = action.payload;
+        fetchTasksSuccess: (state, { payload }: PayloadAction<TaskModel[]>) => {
+            state.tasks = payload;
             state.loading = false;
         },
         fetchTasksFailure: (state) => {
             state.loading = false
         },
-        startEditTask: (state, action) => {
+        startEditTask: (state, { payload }: PayloadAction<TaskModel>) => {
             state.loading = true;
         },
-        startAddTask: (state, action) => {
+        startAddTask: (state, { payload }: PayloadAction<AddTaskPayload>) => {
             state.loading = true;
         },
-        startChangeTaskStatus: (state, action) => {
+        startChangeTaskStatus: (state, { payload }: PayloadAction<ChangeStatusPayload>) => {
             state.loading = true;
         },
         setInserting: (state) => {
             state.action = 'insert';
         },
-        setEditing: (state, action) => {
+        setEditing: (state, { payload }: PayloadAction<string>) => {
             state.action = 'update'
-            state.taskId = action.payload
+            state.taskId = payload
         },
         openForm: (state) => {
             state.showForm = true;
@@ -66,4 +67,15 @@ export const slice = createSlice({
 
 export default slice.reducer;
 
-export const { startTasksFetch, fetchTasksSuccess, fetchTasksFailure, startEditTask, startAddTask, openForm, closeForm, setInserting, setEditing, startChangeTaskStatus } = slice.actions;
+export const { 
+    startTasksFetch,
+    fetchTasksSuccess,
+    fetchTasksFailure,
+    startEditTask,
+    startAddTask,
+    openForm,
+    closeForm,
+    setInserting,
+    setEditing,
+    startChangeTaskStatus
+} = slice.actions;

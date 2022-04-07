@@ -1,16 +1,10 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
+import { TaskModel } from '../../models/TaskModel';
 import { openForm, setEditing, startChangeTaskStatus } from '../../store/slices/taskSlice';
 import './Task.css'
 
-interface TaskProps {
-  id: number;
-  title: string;
-  description: string;
-  completed: boolean;
-}
-
-const Task: React.FC<TaskProps> = ({ id, completed, description, title }) => {
+const Task: React.FC<TaskModel> = ({ id, completed, description, title }) => {
 
   const dispatch = useDispatch();
   const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(false);
@@ -40,8 +34,8 @@ const Task: React.FC<TaskProps> = ({ id, completed, description, title }) => {
           {isCompleted ? <p>{"\u2713"}</p> : false}
         </div>
         <div className='task-info'>
-          <h3>{title}</h3>
-          <p>{description}</p>
+          <h3 style={completed === true ? {textDecoration: 'line-through', opacity: '0.5'} : {}}>{title}</h3>
+          <p style={completed === true ? {opacity: '0.5'} : {}}>{description}</p>
         </div>
         <div className='actions'>
             <h2 onClick={switchDropdownVisibility} className="dots-menu">...</h2>

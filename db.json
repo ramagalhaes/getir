@@ -1,45 +1,39 @@
 {
   "tasks": [
     {
-      "id": 1,
-      "title": "Do the groceries",
-      "description": "But apples, milk an chocolate",
+      "id": "37df1d7f-1fd4-4def-a615-15801efc2ef6",
+      "title": "raphael",
+      "description": "magalhaes",
       "completed": false
     },
     {
-      "id": 2,
+      "id": "37df1d7f-1fd4-4def-a615-158hf68f2ef6",
       "title": "Study React",
       "description": "Hooks, lifecycle",
       "completed": false
     },
     {
-      "id": 3,
+      "id": "37df1d7f-1fd4-4def-a615-7gm0g8f2ef6",
       "title": "asdasd",
       "description": "asdasd",
       "completed": false
     },
     {
-      "id": 4,
-      "title": "Read a book",
-      "description": "read 45 pages of a good book",
+      "id": "249e536b-25de-4322-bda0-0683c06fca5c",
+      "title": "Do the groceries",
+      "description": "Buy apples, milk and chocolate",
       "completed": false
     },
     {
-      "id": 5,
-      "title": "Test the app",
-      "description": "test the app functionalities",
+      "id": "b17ef046-288e-4038-a6c4-561cdaed46a2",
+      "title": "Watch a movie",
+      "description": "",
       "completed": false
     },
     {
-      "id": 6,
-      "title": "Make pizza",
-      "description": "Buy flour, cheese and tomato sauce",
-      "completed": false
-    },
-    {
-      "id": 7,
-      "title": "dasd",
-      "description": "asd",
+      "id": "64f7c72a-a1f3-48b8-a3f8-9b60c588c423",
+      "title": "Watch a movie",
+      "description": "",
       "completed": false
     }
   ]

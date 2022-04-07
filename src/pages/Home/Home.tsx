@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import  uuid  from 'uuidv4';
 import Task from '../../components/Task/Task';
-import { ToDo } from '../../models/ToDoModel';
+import { TaskModel } from '../../models/TaskModel';
 import { closeForm, openForm, setInserting, startAddTask, startEditTask, startTasksFetch } from '../../store/slices/taskSlice';
+import { months } from '../../utils/utils';
 import './Home.css'
 
 function Home() {
@@ -10,6 +12,7 @@ function Home() {
   const dispatch = useDispatch();
   const [newTitle, setNewTitle] = useState<string>('');
   const [newDescription, setNewDescription] = useState<string>('');
+  const date = new Date();
 
   useEffect(() => {
     dispatch(startTasksFetch());
@@ -25,10 +28,9 @@ function Home() {
   }
 
   function handleSaveClick() {
-    // const payload = { id: Math.random(), title: newTitle, description: newDescription, completed: false }
-    const payload = { id: store.taskId, title: newTitle, description: newDescription, completed: false }
-
-    // Since a backend is not being used the task id will be set manually
+    let id = uuid();
+    if(store.action === 'update'){ id = store.taskId }
+    const payload = { id: id, title: newTitle, description: newDescription, completed: false }
     dispatch(store.action === 'insert' ? startAddTask(payload) : startEditTask(payload))
     dispatch(closeForm());
     setNewTitle('');
@@ -61,7 +63,7 @@ function Home() {
               </div>
             </div>
             <div className='teste flex'>
-            <p>April 5, 2022</p>
+            <p>{months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear()}</p>
             <p>loading</p>
             </div>
           </div>
@@ -96,7 +98,7 @@ function Home() {
               </section>
             ) : false}
             <div className='todo-list'>
-              {store?.tasks.map((task: ToDo) => (
+              {store?.tasks.map((task: TaskModel) => (
                 <Task 
                   key={task.id}
                   id={task.id}
