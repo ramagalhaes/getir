@@ -12,6 +12,9 @@
     border: 2px solid #CCC;
     cursor: pointer;
     border-radius: 2px;
+    color: #FFF;
+    align-items: center;
+    justify-content: center;
 }
 
 .task-info {
@@ -24,6 +27,10 @@
 
 .actions { 
     width: 15px;
+}
+
+.dots-menu {
+    cursor: pointer;
 }
 
 /* ACTIONS DROPDOWN */

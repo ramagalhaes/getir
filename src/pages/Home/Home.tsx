@@ -1,8 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Task from '../../components/Task/Task';
+import { ToDo } from '../../models/ToDoModel';
+import { closeForm, openForm, setInserting, startAddTask, startEditTask, startTasksFetch } from '../../store/slices/taskSlice';
 import './Home.css'
 
 function Home() {
+  const store = useSelector((state: any) => state.tasks);
+  const dispatch = useDispatch();
+  const [newTitle, setNewTitle] = useState<string>('');
+  const [newDescription, setNewDescription] = useState<string>('');
+
+  useEffect(() => {
+    dispatch(startTasksFetch());
+  }, [dispatch]);
+
+  function handleAddBtnClick() {
+    if(store.showForm === false) {
+      dispatch(setInserting());
+      dispatch(openForm());
+    } else {
+      dispatch(closeForm())
+    }
+  }
+
+  function handleSaveClick() {
+    // const payload = { id: Math.random(), title: newTitle, description: newDescription, completed: false }
+    const payload = { id: store.taskId, title: newTitle, description: newDescription, completed: false }
+
+    // Since a backend is not being used the task id will be set manually
+    dispatch(store.action === 'insert' ? startAddTask(payload) : startEditTask(payload))
+    dispatch(closeForm());
+    setNewTitle('');
+    setNewDescription('');
+  }
+
   return (
     <main className='full-screen container'>
       <section className='card flex'>
@@ -16,7 +48,7 @@ function Home() {
               <div className='todo-summary flex'>
                 <span className='status-counter flex'>
                   <div className='h3-bg flex'>
-                    <h3>24</h3>
+                    <h3>5</h3>
                   </div>
                   <p>done</p>
                 </span>
@@ -40,17 +72,39 @@ function Home() {
           <div className='content-container flex'>
             <span className='menu flex'>
               <h4>Inbox</h4>
-              <button className='add-btn'>add task</button>
+              <button onClick={handleAddBtnClick} className='add-btn'>add task</button>
             </span>
-            <section className='add-drop flex'>
-              <input type="text" placeholder='Title' aria-aria-label='Title'/>
-              <span className='flex description-input'>
-              <input type="text" placeholder='Description' aria-aria-label='Description'/>
-              <button>save</button>
+            { store.showForm && !store.loading ? (
+              <section className='add-drop flex'>
+                <input
+                  type="text"
+                  placeholder='Title'
+                  aria-label='Title'
+                  value={newTitle}
+                  onChange={(event) => {setNewTitle(event.target.value)}}
+                />
+                <span className='flex description-input'>
+                  <input
+                    type="text"
+                    placeholder='Description'
+                    aria-label='Description'
+                    value={newDescription}
+                    onChange={(event) => {setNewDescription(event.target.value)}}
+                  />
+                  <button onClick={handleSaveClick}>save</button>
               </span>
-            </section>
+              </section>
+            ) : false}
             <div className='todo-list'>
-              <Task />
+              {store?.tasks.map((task: ToDo) => (
+                <Task 
+                  key={task.id}
+                  id={task.id}
+                  completed={task.completed}
+                  description={task.description}
+                  title={task.title}
+                />
+              ))}
             </div>
           </div>
         </div>

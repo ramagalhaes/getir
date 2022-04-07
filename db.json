@@ -1,0 +1,46 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Do the groceries",
+      "description": "But apples, milk an chocolate",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "title": "Study React",
+      "description": "Hooks, lifecycle",
+      "completed": false
+    },
+    {
+      "id": 3,
+      "title": "asdasd",
+      "description": "asdasd",
+      "completed": false
+    },
+    {
+      "id": 4,
+      "title": "Read a book",
+      "description": "read 45 pages of a good book",
+      "completed": false
+    },
+    {
+      "id": 5,
+      "title": "Test the app",
+      "description": "test the app functionalities",
+      "completed": false
+    },
+    {
+      "id": 6,
+      "title": "Make pizza",
+      "description": "Buy flour, cheese and tomato sauce",
+      "completed": false
+    },
+    {
+      "id": 7,
+      "title": "dasd",
+      "description": "asd",
+      "completed": false
+    }
+  ]
+}
