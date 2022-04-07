@@ -4,7 +4,10 @@ Some dependencies need to be instaled prior to running the project, the command 
 
 It might be neccessaty to install json-server globally, run `npm i -g json-server` to do so.
 
-## Available Scripts
+## Running locally
+
+Comment line 4 on src/api/API.ts
+uncomment line 5
 
 First we need to run
 ### `npm server`
@@ -19,3 +22,7 @@ Runs the app in the development mode
 To-do list where the user is able to add, edit and delete tasks
 
 Built using ReactJS, Typescript, Redux and Redux-Saga.
+
+The application is running on heroku and mockAPI, if somwthing goes wrong and stops running it's also possible to run locally following the instructions above
+
+
