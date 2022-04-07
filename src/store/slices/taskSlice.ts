@@ -42,7 +42,7 @@ export const slice = createSlice({
     },
     startChangeTaskStatus: (
       state,
-      { payload }: PayloadAction<ChangeStatusPayload>
+      { payload }: PayloadAction<TaskModel>
     ) => {
       state.loading = true;
     },

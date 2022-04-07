@@ -49,7 +49,7 @@ function* workEditTask({ payload }: any) {
 
 function* workChangeTaskStatus({ payload }: any): Generator<any, any, any> {
   try {
-    yield Api.patch(`/tasks/${payload.id}`, { completed: payload.completed });
+    yield Api.put(`/tasks/${payload.id}`, payload);
     yield put(
       genericSuccess({ type: 'success', message: 'Task updated successfuly' })
     );

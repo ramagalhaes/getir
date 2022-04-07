@@ -87,7 +87,7 @@ const Home: React.FC<any> = () => {
                   date.getFullYear()}
               </p>
               <p>
-                {(store.completedTasks * 100) / store.tasks.length}% completed
+                { ((store.completedTasks * 100) / store.tasks.length)|| 0 }% completed
               </p>
             </div>
           </div>

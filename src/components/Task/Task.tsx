@@ -18,11 +18,20 @@ const Task: React.FC<TaskModel> = ({ id, completed, description, title }) => {
   }
 
   function switchCompletedState() {
+    const requestObj: TaskModel = {
+      id,
+      title,
+      description,
+      completed
+    };
     setIsCompleted(!isCompleted);
+    // Since MOCKAPI doesn't allow us to use PATCH methods the whole task object will be sent to update the complete status
     if (!isCompleted) {
-      dispatch(startChangeTaskStatus({ id, completed: true }));
+      requestObj.completed = true;
+      dispatch(startChangeTaskStatus(requestObj));
     } else {
-      dispatch(startChangeTaskStatus({ id, completed: false }));
+      requestObj.completed = false;
+      dispatch(startChangeTaskStatus(requestObj));
     }
   }
 
