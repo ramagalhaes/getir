@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TaskModel } from '../../models/TaskModel';
-import { AddTaskPayload, ChangeStatusPayload } from '../../types/Payloads'
-import { Dialog, TaskState } from '../../types/TaskState';
+import { AddTaskPayload, ChangeStatusPayload } from '../../models/Payloads'
+import { Dialog, TaskState } from '../../models/TaskState';
 
 const initialState: TaskState = {
     action: 'insert',

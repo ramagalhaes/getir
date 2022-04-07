@@ -1,4 +1,4 @@
-import { TaskModel } from "../models/TaskModel";
+import { TaskModel } from "./TaskModel";
 
 export interface TaskState {
     action: 'insert' | 'update';
